@@ -432,17 +432,25 @@ display: block;
 }
 
 .nav-links {
-position: fixed;
-top: 60px;
-left: -100%;
-width: 100%;
-height: calc(100vh - 60px);
-background-color: var(--secondary);
-flex-direction: column;
-align-items: center;
-justify-content: flex-start;
-padding-top: 2rem;
-transition: left 0.3s;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 60px);
+    background-color: var(--secondary);
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 2rem;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 999;
+}
+
+.nav-links.active {
+    display: flex;
+    opacity: 1;
 }
 
 .nav-links.active {
@@ -953,8 +961,17 @@ grid-template-columns: 1fr;
 
 <script>
 // Mobile menu toggle
-document.getElementById('menuToggle').addEventListener('click', function() {
-document.getElementById('navLinks').classList.toggle('active');
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+
+menuToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
+
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+  });
 });
 
 // Smooth scrolling for navigation links
