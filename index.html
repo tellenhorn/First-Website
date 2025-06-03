@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Working Conference on Psychoanalytic and Psychodynamic Psychology Education and Training</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #34495e;
+            --accent: #3498db;
+            --accent-dark: #2980b9;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --danger: #e74c3c;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .header-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .header-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            text-align: center;
+        }
+        
+        .dates {
+            display: inline-block;
+            background-color: var(--accent);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            margin-top: 1.5rem;
+            font-weight: bold;
+        }
+        
+        nav {
+            background-color: var(--secondary);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-decoration: none;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--accent);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        section {
+            margin-bottom: 4rem;
+        }
+        
+        h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+        
+        h3 {
+            color: var(--secondary);
+            margin: 1.5rem 0 1rem;
+            font-size: 1.5rem;
+        }
+        
+        h4 {
+            color: var(--primary);
+            margin: 1.2rem 0 0.8rem;
+            font-size: 1.2rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            max-width: 800px;
+        }
+        
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-top: 1rem;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--accent-dark);
+        }
+        
+        .btn-large {
+            font-size: 1.2rem;
+            padding: 1rem 2rem;
+        }
+        
+        .btn-success {
+            background-color: var(--success);
+        }
+        
+        .btn-success:hover {
+            background-color: #27ae60;
+        }
+        
+        .highlight {
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .card h3 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+        
+        .tab-container {
+            margin-top: 2rem;
+        }
+        
+        .tab-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .tab-button {
+            background-color: #f1f1f1;
+            border: none;
+            padding: 12px 24px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight: 600;
+            border-radius: 4px 4px 0 0;
+            margin-right: 4px;
+        }
+        
+        .tab-button:hover {
+            background-color: #ddd;
+        }
+        
+        .tab-button.active {
+            background-color: var(--accent);
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 1.5rem;
+            border: 1px solid #ddd;
+            border-top: none;
+            background-color: white;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .sponsor-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .sponsor-logo {
+            max-width: 180px;
+            height: auto;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: filter 0.3s, opacity 0.3s;
+        }
+        
+        .sponsor-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+        
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .column {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+        
+        .footer-column h3 {
+            color: white;
+            margin-top: 0;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        .footer-column a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+        }
+        
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .program-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .program-item:last-child {
+            border-bottom: none;
+        }
+        
+        .program-time {
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .program-title {
+            font-weight: bold;
+            margin-bottom: 0.3rem;
+        }
+        
+        .program-speakers {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+        
+        .day-section {
+            margin-bottom: 2rem;
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .day-title {
+            color: var(--primary);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        @media (max-width: 992px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 60px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 60px);
+                background-color: var(--secondary);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 2rem;
+                transition: left 0.3s;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 1rem 0;
+            }
+            
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Working Conference on Psychoanalytic and Psychodynamic Psychology Education and Training</h1>
+            <p>Establishing education and training infrastructure for the APA specialty in Psychoanalytic and Psychodynamic Psychology</p>
+            <div class="dates">July 18-20, 2025 | Austen Riggs Center | Stockbridge, MA</div>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">PA/PD Conference 2025</a>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#objectives">Objectives</a></li>
+                <li><a href="#schedule">Schedule</a></li>
+                <li><a href="#working-groups">Working Groups</a></li>
+                <li><a href="#register">Register</a></li>
+                <li><a href="#ce">CE Program</a></li>
+                <li><a href="#post-conference">Post-Conference</a></li>
+                <li><a href="#accommodations">Accommodations</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main>
+        <section id="overview">
+            <h2>Conference Overview</h2>
+            <p>Welcome to the Working Conference on Psychoanalytic and Psychodynamic Psychology Education and Training, a pivotal collaborative event focused on establishing education and training infrastructure for the APA specialty in Psychoanalytic and Psychodynamic Psychology (PA/PD) and subspecialty in Psychoanalysis.</p>
+            
+            <div class="highlight">
+                <h3>Conference Highlights</h3>
+                <ul>
+                    <li>Collaborative working groups organized by training level</li>
+                    <li>Orienting presentations on the specialty/subspecialty, taxonomy, and board certification</li>
+                    <li>Development of model programs and implementation pathways</li>
+                    <li>Networking with leaders in psychoanalytic and psychodynamic psychology</li>
+                    <li>Free attendance and CE credits</li>
+                    <li>Pre-conference materials and webinars</li>
+                </ul>
+            </div>
+            
+            <h3>Conference Sponsors</h3>
+            <p>This conference is jointly sponsored by:</p>
+            <ul>
+                <li>The Psychoanalytic and Psychodynamic Psychology and Psychoanalysis Specialty Council of the Council of Specialties in Professional Psychology</li>
+                <li>American Board and Academy of Psychoanalytic and Psychodynamic Psychology of ABPP</li>
+                <li>Austen Riggs Center</li>
+                <li>Academics for the Advancement of Psychodynamic Psychology</li>
+                <li>APA Division 39 Education and Training Committee</li>
+            </ul>
+            
+            <h3>Background</h3>
+            <p>In 2022, the APA Commission for the Recognition of Specialties and Subspecialties in Professional Psychology (CRSSPP) recognized the specialty in PA/PD and the subspecialty in Psychoanalysis. This is the first time in history that APA has formally recognized psychoanalytic and psychodynamic psychology as part of the discipline of psychology.</p>
+            
+            <p>In 2024, Psychodynamic and Psychoanalytic Psychology specialty postdocs were listed by APPIC, and recognized by the CoA for APA-approval, and the American Board of Professional Psychology recognized the PA/PD specialty and Psychoanalysis subspecialty for board certification.</p>
+            
+            <p>This conference represents a crucial step in developing comprehensive training standards, competency models, and educational pathways for the specialty and subspecialty.</p>
+            
+
+        </section>
+        
+        <section id="objectives">
+            <h2>Conference Objectives</h2>
+            <p>The primary purpose of this working conference is to advance education and training in the Psychoanalytic and Psychodynamic Psychology specialty and subspecialty in Psychoanalysis through:</p>
+            
+            <ol>
+                <li>
+                    <strong>Developing a shared understanding</strong> of the specialty and subspecialty in Psychoanalysis, education and training taxonomy, and competencies across all stages of training:
+                    <ul>
+                        <li>High school and undergraduate</li>
+                        <li>Master's and doctoral programs</li>
+                        <li>Internship programs</li>
+                        <li>Postdoctoral programs</li>
+                        <li>Post-licensure training</li>
+                    </ul>
+                </li>
+                <li><strong>Development of Model Programs</strong> and integration of the specialty and subspecialty in Psychoanalysis taxonomy and competencies across all stages of Education and Training</li>
+                <li><strong>Identifying and addressing barriers</strong> to psychodynamic and psychoanalytic education and training opportunities</li>
+                <li><strong>Establishing sustainable councils</strong> for collaboration and advocacy within academic and training contexts across all stages of education and training</li>
+                <li><strong>Creating implementation pathways</strong> for the specialty and subspecialty in Psychoanalysis education and training taxonomy</li>
+                <li><strong>Defining psychoanalytic and psychodynamic competencies</strong> aligned with APA specialty and subspecialty in Psychoanalysis and board certification standards</li>
+                <li><strong>Advocacy and Outreach</strong> for promoting the specialty and subspecialty in Psychoanalysis within academic and clinical settings</li>
+            </ol>
+            
+            <h3>Who Should Attend</h3>
+            <p>We are specifically inviting key stakeholders who can contribute to and benefit from these discussions:</p>
+            
+            <div class="card-container">
+                <div class="card">
+                    <h3>Doctoral Program Leaders</h3>
+                    <p>Training directors and department chairs from professional, clinical-scientist, and counseling psychology doctoral programs</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Internship Directors</h3>
+                    <p>Psychology internship training directors with interest in psychodynamic training</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Postdoctoral Directors</h3>
+                    <p>Psychodynamic postdoctoral program directors and supervisors</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Institute Leaders</h3>
+                    <p>Post-licensure training program directors, including psychoanalytic institutes</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Academic Faculty</h3>
+                    <p>Faculty working to establish the specialty and subspecialty in Psychoanalysis within academic settings</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Students</h3>
+                    <p>Graduate students interested in psychoanalytic and psychodynamic specialty and subspecialty in Psychoanalysis training</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="schedule">
+            <h2>Conference Schedule</h2>
+            <p>The conference will combine working group sessions, presentations, collaborative planning, and networking opportunities across three days.</p>
+            
+            <div class="day-section">
+                <h3 class="day-title">Day 1: Friday, July 18, 2025</h3>
+                
+                <div class="program-item">
+                    <div class="program-time">5:00 PM - 5:30 PM</div>
+                    <div class="program-title">Arrival and Registration</div>
+                </div>
+                
+                <div class="program-item">
+                    <div class="program-time">5:30 PM - 6:00 PM</div>
+                    <div class="program-title">Welcome and Introduction to the Conference</div>
+                    <div class="program-speakers">Facilitator: Theodore Ellenhorn, PhD, ABPP</div>
+                    <p>Overview of conference objectives and structure</p>
+                </div>
+                
+                <div class="program-item">
+                    <div class="program-time">6:00 PM - 7:30 PM</div>
+                    <div class="program-title">Defining the Specialty in Psychoanalytic and Psychodynamic Psychology</div>
+                    <div class="program-speakers">Facilitators: John Watkins, PhD, ABPP (overview), Nancy McWilliams, PhD, ABPP, Theodore Ellenhorn, PhD, ABPP (academic), Alicia MacDougall, PsyD, ABPP (populations and modalities from Early Career perspective), Bhupin Butaney, PhD, ABPP (professional practice and future/context/APA)</div>
+                    <p><strong>Topic:</strong> Importance of the Specialty in Psychoanalytic and Psychodynamic Psychology in Academia, Training Sites, and Professional Practice. Defining PA/PD: populations, settings, modalities, education and training, and specific competencies. Distinction from psychoanalysis subspecialty.</p>
+                </div>
+            </div>
+            
+            <div class="day-section">
+                <h3 class="day-title">Day 2: Saturday, July 19, 2025</h3>
+                
+                <div class="program-item">
+                    <div class="program-time">9:00 AM - 10:15 AM</div>
+                    <div class="program-title">Deep Dive into the Taxonomy and Competencies</div>
+                    <div class="program-speakers">Facilitators: John Watkins, PhD, ABPP, Theodore Ellenhorn, PhD, ABPP (taxonomy), Barry Dauphin, PhD, ABPP (competencies)</div>
+                    <p><strong>Topic:</strong> Navigating the Taxonomy and Addressing Competencies for all stages of training.</p>
+                    <p>Format: Q&A session focusing on implementing the taxonomy and addressing barriers.</p>
+                    <p><em>Note: This session will also be offered before the conference and supported by pre-conference distribution of materials.</em></p>
+                </div>
+                
+                <div class="program-item">
+                    <div class="program-time">10:15 AM - 11:15 AM</div>
+                    <div class="program-title">Pathways to Specialty Board Certification</div>
+                    <div class="program-speakers">Facilitators: Daniel Knauss, PsyD, ABPP, Steven Ackerman, PhD, ABPP, Bhupin Butaney, PhD, ABPP, Alicia MacDougall, PsyD, ABPP, Ashland Thompson, PsyD, ABPP</div>
+                    <p><strong>Topic:</strong> Integrating board certification as a natural step in education, training, and licensure.</p>
+                </div>
+                
+                <div class="program-item">
+                    <div class="program-time">11:30 AM - 1:00 PM</div>
+                    <div class="program-title">Stages of Education and Training Work Group Formation over lunch</div>
+                </div>
+                
+                <div class="program-item">
+                    <div class="program-time">1:00 PM - 5:00 PM</div>
+                    <div class="program-title">Working Group Formation and Sessions</div>
+                    <p>Participants join working groups based on their interests and expertise, forming the initial structure for an Education and Training Council.</p>
+                    <p><strong>Task Identification:</strong> Stage of training-specific Competencies and Levels of Opportunity</p>
+                    <p><strong>Resource Development:</strong> Create materials to assist programs in meeting taxonomy standards</p>
+                    <p><strong>Barrier Analysis:</strong> Identify barriers specific to each training level and discuss potential solutions</p>
+                    <p>Working groups include:</p>
+                    <ol>
+                        <li><strong>Masters and Doctoral Programs (including practica/externship)</strong></li>
+                        <li><strong>Internship Programs</strong></li>
+                        <li><strong>Postdoctoral Training (Residency and Non-Residency)</strong></li>
+                        <li><strong>Post-Licensure Training (including 1-2 year programs, continuing education, and psychoanalytic institutes)</strong></li>
+                        <li><strong>Undergraduate and High School</strong></li>
+                    </ol>
+                </div>
+                
+                <div class="program-item">
+                    <div class="program-time">Evening</div>
+                    <div class="program-title">Dinner on own in Stockbridge</div>
+                    <p>List of local restaurants will be provided.</p>
+                </div>
+                
+                <div class="program-item">
+                    <div class="program-time">7:00 PM</div>
+                    <div class="program-title">Optional Group Outing: Tanglewood</div>
+                    <p>Consider attending Tanglewood for Tosca with the Boston Symphony Orchestra. Lawn tickets are available and some of us are planning on going for a picnic and opera.</p>
+                </div>
+            </div>
+            
+            <div class="day-section">
+                <h3 class="day-title">Day 3: Sunday, July 20, 2025</h3>
+                
+                <div class="program-item">
+                    <div class="program-time">9:00 AM - 10:00 AM</div>
+                    <div class="program-title">Reporting Back and Cross-Group Dialogue</div>
+                    <p>Each group reports back to the larger group on both conclusions and the process</p>
+                </div>
+                
+                <div class="program-item">
+                    <div class="program-time">10:00 AM - 11:00 AM</div>
+                    <div class="program-title">Collaborative Planning (work groups)</div>
+                    <ul>
+                        <li><strong>Group Discussions:</strong> Enhance collaboration among training programs and stakeholders</li>
+                        <li><strong>Feedback Sessions:</strong> Experiences and suggestions for overcoming obstacles</li>
+                        <li><strong>Stages of Education and Training Councils:</strong> Plan next steps and schedule future meetings</li>
+                    </ul>
+                </div>
+                
+                <div class="program-item">
+                    <div class="program-time">11:00 AM - 12:00 PM</div>
+                    <div class="program-title">Summary Session with all groups present</div>
+                    <ul>
+                        <li><strong>Summary of Key Insights:</strong> Recap major takeaways from the conference</li>
+                        <li><strong>Next Steps:</strong> Follow-up actions and opportunities for continued collaboration</li>
+                        <li><strong>Advocacy and Outreach Strategies</strong></li>
+                        <li><strong>Building the Education and Training Council and Strengthening the Specialty Council</strong></li>
+                        <li><strong>Discussion of the Journal of Education and Training in Psychoanalytic and Psychodynamic Psychology</strong></li>
+                        <li><strong>Networking Opportunities:</strong> Final connections and potential partnerships</li>
+                    </ul>
+                </div>
+                
+                <div class="program-item">
+                    <div class="program-time">12:00 PM - 1:00 PM</div>
+                    <div class="program-title">Working Lunch: Action Planning</div>
+                    <p>Participants develop concrete action plans for implementing conference outcomes at their institutions.</p>
+                </div>
+            </div>
+            
+            <div class="highlight">
+                <p><strong>Note:</strong> The Friday night and Saturday morning panels will be available as live webinars and recorded as webinars for CE credits.</p>
+            </div>
+        </section>
+        
+        <section id="working-groups">
+            <h2>Working Groups/Councils by Training Level</h2>
+            <p>Throughout the conference, participants will work in groups organized by training level to address specific challenges and opportunities within their educational contexts.</p>
+            
+            <div class="card-container">
+                <div class="card">
+                    <h3>High School and Undergraduate</h3>
+                    <h4>Focus Areas:</h4>
+                    <ul>
+                        <li>Introducing psychodynamic concepts in secondary and undergraduate education</li>
+                        <li>Creating educational pipelines to graduate training</li>
+                        <li>Developing undergraduate curriculum resources</li>
+                        <li>Engaging students in psychodynamic research</li>
+                        <li>Engaging textbook writers and publishers</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>Masters and Doctoral Programs</h3>
+                    <h4>Focus Areas:</h4>
+                    <ul>
+                        <li>Implementing the taxonomy within graduate curricula</li>
+                        <li>Developing specialization (Major Area of Study) tracks</li>
+                        <li>Integrating with APA competency requirements</li>
+                        <li>Creating model syllabi and training experiences</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>Internships</h3>
+                    <h4>Focus Areas:</h4>
+                    <ul>
+                        <li>Creating PA/PD training experiences within internship settings</li>
+                        <li>Developing supervision models for psychodynamic work</li>
+                        <li>Designing competency evaluations</li>
+                        <li>Addressing challenges within time-limited training contexts</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>Postdoctoral Programs</h3>
+                    <h4>Focus Areas:</h4>
+                    <ul>
+                        <li>Developing APA-accredited PA/PD specialty postdocs</li>
+                        <li>Implementing education and training guidelines</li>
+                        <li>Preparing for APPIC listing</li>
+                        <li>Building bridges to institute training</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>Post-Licensure Programs</h3>
+                    <h4>Focus Areas:</h4>
+                    <ul>
+                        <li>Integrating psychoanalytic institutes with the education taxonomy</li>
+                        <li>Post-licensure education and training pathway integration</li>
+                        <li>Creating bridges between academic psychology and institute training</li>
+                        <li>Facilitating board certification pathways</li>
+                        <li>Individualized and local pathways to competency</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section id="register">
+            <h2>Registration</h2>
+            <p>Pre-registration is required due to limited space. The conference is offered at no cost to participants, with the Austen Riggs Center generously providing facilities, lunches, and refreshments.</p>
+            
+            <div class="highlight">
+                <h3>Registration Information</h3>
+                <ul>
+                    <li><strong>Cost:</strong> Free attendance</li>
+                    <li><strong>Dates:</strong> July 18-20, 2025</li>
+                    <li><strong>Location:</strong> Austen Riggs Center, Stockbridge, MA</li>
+                    <li><strong>Deadline:</strong> June 15, 2025 (or until capacity is reached)</li>
+                </ul>
+            </div>
+            
+            <p>For those who cannot attend the conference in person, the informational sessions and panels will be available as asynchronous continuing education webinars.</p>
+            
+            <p>If you are interested in attending the conference, or cannot attend but want to be part of the ongoing Education and Training Councils, contact Ted Ellenhorn at tellenhorn@antioch.edu</p>
+        </section>
+        
+        <section id="ce">
+            <h2>Continuing Education Program</h2>
+            <p>The Working Conference on Psychoanalytic and Psychodynamic Psychology Education and Training is approved to offer continuing education credits for psychologists at no cost to participants.</p>
+            
+            <div class="two-column">
+                <div class="column">
+                    <h3>CE Information</h3>
+                    <p><strong>Credits Available:</strong> Up to 12 CE credits</p>
+                    <p><strong>Accrediting Body:</strong> ABPP is approved by the American Psychological Association to sponsor continuing education for psychologists. ABPP maintains responsibility for this program and its content.</p>
+                </div>
+                
+                <div class="column">
+                    <h3>CE Requirements</h3>
+                    <ul>
+                        <li>Attendance at designated sessions</li>
+                        <li>Completion of evaluation forms</li>
+                        <li>Participation in learning activities</li>
+                    </ul>
+                    <p>CE registration information will be sent to all conference participants.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="post-conference">
+            <h2>Post-Conference Activities</h2>
+            <p>The work and connections established during the conference will continue through several important follow-up activities:</p>
+            
+            <div class="card-container">
+                <div class="card">
+                    <h3>Documentation and Dissemination</h3>
+                    <p>We will document the outcomes of the conference, including the key themes, prioritized challenges, proposed solutions, and areas of agreement and disagreement. This documentation will be shared widely with all stakeholders to ensure the work continues beyond the conference.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Ongoing Engagement</h3>
+                    <p>A mechanism for ongoing communication and engagement with stakeholders will be established. This could involve a listserv, online forum, or regular follow-up meetings. This ensures that the consensus-building process continues beyond the conference itself.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Implementation and Evaluation</h3>
+                    <p>We will develop a plan for implementing the agreed-upon solutions and evaluating their impact. This will involve clear timelines, responsibilities, and metrics for success to ensure accountability and progress.</p>
+                </div>
+            </div>
+            
+            <div class="highlight">
+                <h3>Resources Development</h3>
+                <p>Conference outcomes will be translated into practical resources for all levels of training, including:</p>
+                <ul>
+                    <li>Model curricula and syllabi</li>
+                    <li>Implementation guides for programs at different training levels</li>
+                    <li>Competency assessment tools</li>
+                    <li>Training taxonomies specific to each educational level</li>
+                    <li>Best practices documentation</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="accommodations">
+            <h2>Accommodations and Entertainment</h2>
+            <p>Stockbridge and the surrounding Berkshires area offer a variety of lodging options for conference attendees. We recommend booking your accommodations early as the Berkshires are a popular summer destination.</p>
+            
+            <div class="two-column">
+                <div class="column">
+                    <h3>Recommended Accommodations</h3>
+                    <ul>
+                        <li><strong>Red Lion Inn</strong> - Closest to Riggs (right across the street) but often expensive</li>
+                        <li><strong>The Little Lion</strong> - 5-minute drive south of Riggs, across from Monument Mountain</li>
+                        <li><strong>Holiday Inn Express and Suites Great Barrington</strong></li>
+                        <li><strong>Fairfield Inn and Suites Great Barrington</strong></li>
+                        <li><strong>Holiday Inn Club Vacations Oak n' Spruce Resort</strong> - 5-minute drive east of Riggs, a family friendly option</li>
+                        <li><strong>The Black Swan in Lee</strong></li>
+                        <li><strong>Courtyard in Lenox</strong></li>
+                        <li><strong>The Constance in Lenox</strong></li>
+                        <li><strong>Air BnB</strong> - Often has a lot of great options if you plan ahead</li>
+                        <li>You can head further north to Pittsfield, prices are likely cheaper although the commute is about 20-25 minutes to Stockbridge</li>
+                    </ul>
+                </div>
+                
+                <div class="column">
+                    <h3>Dining Options</h3>
+                    <h4>In Stockbridge:</h4>
+                    <ul>
+                        <li>The Red Lion Dining Room</li>
+                        <li>The Lion's Den (casual with music in the evening)</li>
+                        <li>Stockbridge Coffee and Tea (for drinks and pastries)</li>
+                        <li>The Lost Lamb (breakfast and lunch faire)</li>
+                        <li>Michael's Bar and Grill</li>
+                    </ul>
+                    
+                    <h4>In Great Barrington:</h4>
+                    <ul>
+                        <li>Agaves (Mexican)</li>
+                        <li>Xicohtencatl (Mexican)</li>
+                        <li>Prairie Whale (Farm to Table American Faire)</li>
+                        <li>Café Adam</li>
+                        <li>Barrington Brewery and Restaurant</li>
+                        <li>The Well</li>
+                        <li>The Marketplace</li>
+                        <li>Number 10</li>
+                    </ul>
+                    
+                    <h4>In Lenox:</h4>
+                    <ul>
+                        <li>Antimony Brewing and Kitchen</li>
+                        <li>Alta</li>
+                        <li>Bistro Zinc</li>
+                        <li>Frankies</li>
+                        <li>Brava</li>
+                        <li>Boema (high end pizza)</li>
+                        <li>Firefly</li>
+                        <li>Haven (great for breakfast and lunch)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3>Entertainment and Cultural Activities</h3>
+            <p>The Berkshires are known for their rich cultural offerings, especially during the summer season:</p>
+            <ul>
+                <li><strong>Tanglewood</strong> - Home of the Boston Symphony Orchestra's summer season. On Saturday night of the conference, they will be performing Tosca. Lawn tickets are available, and a group of conference attendees are planning to attend for a picnic and opera experience.</li>
+                <li><strong>Norman Rockwell Museum</strong> - Located in Stockbridge, featuring the artist's original works</li>
+                <li><strong>Berkshire Theatre Group</strong> - Live performances throughout the summer</li>
+                <li><strong>Mass MoCA</strong> - Contemporary art museum in North Adams</li>
+                <li><strong>The Mount</strong> - Edith Wharton's historic home in Lenox</li>
+                <li><strong>Jacob's Pillow</strong> - Internationally renowned dance festival in Becket</li>
+            </ul>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <p>Contact Information (conference website coming soon)</p>
+                <p>Email: tellenhorn@antioch.edu</p>
+                <p>Phone: (413) 256-3075</p>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#overview">Conference Overview</a></li>
+                    <li><a href="#schedule">Schedule</a></li>
+                    <li><a href="#register">Registration</a></li>
+                    <li><a href="#accommodations">Accommodations</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Sponsors</h3>
+                <ul>
+                    <li><a href="#">Austen Riggs Center</a></li>
+                    <li><a href="#">Psychoanalytic and Psychodynamic Psychology Specialty Council</a></li>
+                    <li><a href="#">ABPP</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 Working Conference on Psychoanalytic and Psychodynamic Psychology Education and Training. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.getElementById('navLinks').classList.toggle('active');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Tab functionality (if needed in future)
+        function openTab(evt, tabName) {
+            var i, tabContent, tabButtons;
+            
+            // Hide all tab content
+            tabContent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabContent.length; i++) {
+                tabContent[i].style.display = "none";
+            }
+            
+            // Remove active class from all tab buttons
+            tabButtons = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].className = tabButtons[i].className.replace(" active", "");
+            }
+            
+            // Show the selected tab and add active class to the button
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+</html>
